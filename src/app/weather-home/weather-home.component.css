@@ -1,7 +1,6 @@
 *{
-    margin: 0px;
-    padding: 0px;
-box-sizing: border-box;
+   margin: 0px;
+   padding: 0px;
 }
 nav{
     background-color: rgb(210, 210, 248);
@@ -16,6 +15,7 @@ h1{
     padding: 20px;
     text-align: center;
     background-color: rgba(118, 174, 238, 0.877);
+    height:fit-content;
 }
 .app-main >*{
     margin-bottom: 20px;
@@ -41,7 +41,7 @@ h1{
    line-height: 2rem;
    border-radius: 10px;
    background-color: rgba(255,255,255,0.6);
-   height: 50vh;
+   height: fit-content;
 }
 .location-detalis{
    font-weight: bold;
@@ -62,4 +62,14 @@ h1{
 .title{
     width:100vw;
     background-color: rgb(215, 227, 248);
+}
+#btn{
+   margin-top: 10px;
+   width:50%;
+   background-color: rgba(255,255,255,0.6);
+   border:none;
+   outline:none;
+   color:#582233;
+   font-size:1rem;
+   border-radius: 5.5px;
 }

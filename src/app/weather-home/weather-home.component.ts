@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscriber } from 'rxjs';
 import { WeatherClientService } from '../weather-client.service';
 
 @Component({
@@ -13,9 +14,8 @@ export class WeatherHomeComponent implements OnInit {
   ngOnInit(): void {
     this.weatherClient.getData().subscribe(data=>{
       console.log(data);
-      console.log(data.weatherApi.sys.id);
     })
-
+    
   }
 
 }
