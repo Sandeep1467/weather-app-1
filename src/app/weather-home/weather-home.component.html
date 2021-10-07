@@ -1,23 +1,23 @@
-
-<div class="title"><h1>Weather-App</h1></div>
+<div class="title">
+    <h1>Weather-App</h1>
+</div>
 <div class="app-main">
     <div class="SearchInputBox">
-        <form  >
-        <input type="text" id="input-box" class="input-box" placeholder="Enter the city name.." autocomplete="off"> 
-        <button  type="submit" id="btn">search</button>
-    </form>
+        <input [(ngModel)]="city" type="text" id="input-box" class="input-box" placeholder="Enter the city name.."
+            autocomplete="off">
+        <button type="button" id="btn" (click)="getWeather()">search</button>
     </div>
-    <div class="weather-body">
+    <div class="weather-body"*ngIf="weather">
         <div class="location-detalis">
-            <div class="city" id="city"> patna</div>
-            <div class="date" id="date">29 aug 2020</div>
+            <h3>Weather Details </h3>
+            <div class="city" id="city">{{city}} {{weather.sys.country}}</div>
         </div>
-        <div class="weather-details">
-            <div class="temp" id="temp"> 32c</div>
-            <div class="min-max" id="min-max"> 15deg:c 37deg:c</div>
-            <div class="weather" id="weather">cloud</div>
+        <div class="weather-details" >
+            <div class="temp" id="temp"> {{weather.main.temp-273.15|number:'1.0-0'}}</div>
+            <div class="feel" id="feel"> feels_like:{{weather.main.feels_like-273.15|number:'1.0-0'}}</div>
+            <div class="min-max" id="min-max">Min:{{weather.main.temp_min-273.15| number: '1.0-0'}} Max:{{weather.main.temp_max-273.15| number: '1.0-0'}}</div>
+            <div class="weather" id="weather"> Weather:{{weather.weather[0].description}}</div>
         </div>
-       
-</div>
- <!--[formGroup]="weatherSearchForm" (ngSubmit)="sendToAPIXU(weatherSearchForm.value)"
-//formControlName="location" />-->
+
+    </div>
+    

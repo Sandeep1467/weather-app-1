@@ -10,18 +10,22 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class WeatherHomeComponent implements OnInit {
   //public weatherSearchForm: FormGroup |any ;
- 
+ public  city:string="city";
+weather:any
 
   constructor(private weatherClient:WeatherClientService) { }
 
   ngOnInit(): void {
-    this.weatherClient.getData().subscribe(data=>{
-      console.log(data);
-    })
     
+    
+    }
+    getWeather(){
+      this.weatherClient.getData(this.city).subscribe(data=>{this.weather=data
+
+        console.log(this.weather);
+      })
     }
     
   }
 
 
-//private formBuilder: FormBuilder

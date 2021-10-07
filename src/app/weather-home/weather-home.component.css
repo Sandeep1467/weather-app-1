@@ -9,6 +9,11 @@ nav{
 h1{
     text-align: center;
 }
+h3{
+   text-align: center;
+   text-decoration:underline;
+   color:rgb(233, 121, 16);
+}
 .app-main{
     width:50vh;
     margin: 10px 0px;
@@ -47,15 +52,15 @@ h1{
    font-weight: bold;
 }
 .weather-details{
-   padding:25px;
+   padding:5px;
 }
 .temp{
-   font-size:50pt;
+   font-size:40pt;
    font-weight: 700;
-   margin: 20px 0;
+   margin: 10px 0;
    text-shadow: 2px 4px rgba(0,0,0,0.3);
 }
-.min-max ,.weather{
+.min-max ,.weather ,.feel{
    font-size:12pt;
    font-weight:600;
 }

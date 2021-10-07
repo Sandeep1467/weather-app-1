@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { WeatherHomeComponent } from './weather-home/weather-home.component';
 import { WeatherClientService } from './weather-client.service';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [WeatherClientService],
   bootstrap: [AppComponent]
