@@ -21,7 +21,6 @@ weather:any
     }
     getWeather(){
       this.weatherClient.getData(this.city).subscribe(data=>{this.weather=data
-
         console.log(this.weather);
       })
     }
