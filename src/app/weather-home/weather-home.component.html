@@ -2,12 +2,14 @@
 <div class="title"><h1>Weather-App</h1></div>
 <div class="app-main">
     <div class="SearchInputBox">
-        <input type="text" id="input-box" class="input-box" placeholder="Enter the city name.." autocomplete="off">
-        <button id="btn">search</button>
+        <form  >
+        <input type="text" id="input-box" class="input-box" placeholder="Enter the city name.." autocomplete="off"> 
+        <button  type="submit" id="btn">search</button>
+    </form>
     </div>
     <div class="weather-body">
         <div class="location-detalis">
-            <div class="city" id="city"> city</div>
+            <div class="city" id="city"> patna</div>
             <div class="date" id="date">29 aug 2020</div>
         </div>
         <div class="weather-details">
@@ -15,4 +17,7 @@
             <div class="min-max" id="min-max"> 15deg:c 37deg:c</div>
             <div class="weather" id="weather">cloud</div>
         </div>
+       
 </div>
+ <!--[formGroup]="weatherSearchForm" (ngSubmit)="sendToAPIXU(weatherSearchForm.value)"
+//formControlName="location" />-->

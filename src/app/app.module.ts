@@ -4,6 +4,8 @@ import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherHomeComponent } from './weather-home/weather-home.component';
+import { WeatherClientService } from './weather-client.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,9 +15,10 @@ import { WeatherHomeComponent } from './weather-home/weather-home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [WeatherClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
