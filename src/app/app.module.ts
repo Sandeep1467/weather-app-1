@@ -7,6 +7,7 @@ import { WeatherHomeComponent } from './weather-home/weather-home.component';
 import { WeatherClientService } from './weather-client.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+//import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +18,13 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+   
   ],
   providers: [WeatherClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+/* AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAH36rZ62LE_8GEbF-6bICnaPBl6VnR5e4'
+    })*/
