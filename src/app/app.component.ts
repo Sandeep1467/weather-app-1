@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'weather-app';
   @ViewChild('mapContainer', {static: false}) gmap!: ElementRef;
   map!: google.maps.Map;
+
     lat = 40.73061;
     lng = -73.935242;
     coordinates = new google.maps.LatLng(this.lat, this.lng);
