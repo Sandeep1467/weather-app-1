@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscriber } from 'rxjs';
 import { WeatherClientService } from '../weather-client.service';
-import {  AfterViewInit, ViewChild, ElementRef } from 
+//import {  AfterViewInit, ViewChild, ElementRef } from 
 '@angular/core';
 
 @Component({
