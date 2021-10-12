@@ -2,10 +2,7 @@
    margin: 0px;
    padding: 0px;
 }
-nav{
-    background-color: rgb(210, 210, 248);
-    margin: 0px;
-}
+
 h1{
     text-align: center;
 }
@@ -16,7 +13,7 @@ h3{
 }
 .app-main{
     width:50vh;
-    margin: 10px 0px;
+    margin: 10px auto;
     padding: 20px;
     text-align: center;
     background-color: rgba(118, 174, 238, 0.877);
@@ -64,10 +61,7 @@ h3{
    font-size:12pt;
    font-weight:600;
 }
-.title{
-    width:100vw;
-    background-color: rgb(215, 227, 248);
-}
+
 #btn{
    margin-top: 10px;
    width:50%;
