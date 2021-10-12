@@ -1,8 +1,8 @@
 
 #map {
-    height: 400px;
-    width:100wv;
-    margin:auto;
+    height: 100vh;
+    width:cover;
+    margin:0px;
    }
    .title{
     width:100vw;

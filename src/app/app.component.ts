@@ -24,7 +24,7 @@ export class AppComponent {
     marker = new google.maps.Marker({
       position: this.coordinates,
       map: this.map,
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.BOUNCE
     });
     ngAfterViewInit() {
       this.mapInitializer();
