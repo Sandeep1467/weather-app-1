@@ -24,6 +24,9 @@ export class WeatherHomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  ngAfterViewInit():  void {
+    this.googlePlaceAutoCompleteAttach();
+  }
   private googlePlaceAutoCompleteAttach():void {
     let autocomplete =
     new google.maps.places.Autocomplete(this.addresstext.nativeElement, { types: ["address"] });
@@ -44,22 +47,7 @@ export class WeatherHomeComponent implements OnInit {
       });
     });
   }
-  /*ngAfterViewInit():  void {
-    this.getPlaceAutocomplete();
-  }*/
- /* getPlaceAutocomplete() {
-    const autocomplete  =  new  google.maps.places.Autocomplete(this.addresstext.nativeElement,
-    {
-      componentRestrictions: { country:  'US' },
-      types: ['establishment', 'geocode'] 
   
-    });
-    google.maps.event.addListener(autocomplete, 'place_changed', () => {
-      const place  =  autocomplete.getPlace();
-      console.log(place);
-      
-    });
-  }*/
   getWeather() {
     this.weatherClient.getData(this.city).subscribe(data => {
       this.weather = data
