@@ -1,5 +1,5 @@
  /// <reference  types="@types/googlemaps"  />
-import { Component, EventEmitter, OnInit, Output, ViewChild,ElementRef, AfterViewInit} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild,ElementRef, AfterViewInit, NgZone} from '@angular/core';
 import { Subscriber } from 'rxjs';
 import { WeatherClientService } from '../weather-client.service';
 
@@ -9,7 +9,7 @@ import { WeatherClientService } from '../weather-client.service';
   styleUrls: ['./weather-home.component.css']
 })
 export class WeatherHomeComponent implements OnInit {
-  @ViewChild('addresstext', {static: false}) #addresstext!:  ElementRef;
+  @ViewChild('addresstext', {static: false}) addresstext!:  ElementRef;
   @Output() newCoord = new EventEmitter<any>();
   newCoordinates(value: any) {
     this.newCoord.emit(value);
@@ -19,16 +19,36 @@ export class WeatherHomeComponent implements OnInit {
   weather: any
 
 
-  constructor(private weatherClient: WeatherClientService) { }
+  constructor(private weatherClient: WeatherClientService,private ngZone: NgZone) { }
 
   ngOnInit(): void {
 
   }
-  ngAfterViewInit():  void {
-    this.getPlaceAutocomplete();
+  private googlePlaceAutoCompleteAttach():void {
+    let autocomplete =
+    new google.maps.places.Autocomplete(this.addresstext.nativeElement, { types: ["address"] });
+    autocomplete.addListener("place_changed",
+    () => {
+      this.ngZone.run(() => {
+        let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+        if (place.geometry === undefined || place.geometry === null) {
+          return;
+        } else {
+          console.log(place);
+          // this.address = place.formatted_address;
+          // this.lat = place.geometry.location.lat();
+          // this.lng = place.geometry.location.lng();
+          // this.marker.setPosition(new google.maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng()));
+          // this.map.setCenter(new google.maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng()));
+        }
+      });
+    });
   }
-  getPlaceAutocomplete() {
-    const autocomplete  =  new  google.maps.places.Autocomplete(this.#addresstext.nativeElement,
+  /*ngAfterViewInit():  void {
+    this.getPlaceAutocomplete();
+  }*/
+ /* getPlaceAutocomplete() {
+    const autocomplete  =  new  google.maps.places.Autocomplete(this.addresstext.nativeElement,
     {
       componentRestrictions: { country:  'US' },
       types: ['establishment', 'geocode'] 
@@ -37,8 +57,9 @@ export class WeatherHomeComponent implements OnInit {
     google.maps.event.addListener(autocomplete, 'place_changed', () => {
       const place  =  autocomplete.getPlace();
       console.log(place);
+      
     });
-  }
+  }*/
   getWeather() {
     this.weatherClient.getData(this.city).subscribe(data => {
       this.weather = data
