@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+ /// <reference  types="@types/googlemaps"  />
+import { Component, EventEmitter, OnInit, Output, ViewChild,ElementRef, AfterViewInit} from '@angular/core';
 import { Subscriber } from 'rxjs';
 import { WeatherClientService } from '../weather-client.service';
 
@@ -8,11 +9,12 @@ import { WeatherClientService } from '../weather-client.service';
   styleUrls: ['./weather-home.component.css']
 })
 export class WeatherHomeComponent implements OnInit {
+  @ViewChild('addresstext', {static: false}) #addresstext!:  ElementRef;
   @Output() newCoord = new EventEmitter<any>();
   newCoordinates(value: any) {
     this.newCoord.emit(value);
   }
-
+ 
   public city: string = "";
   weather: any
 
@@ -21,6 +23,21 @@ export class WeatherHomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+  ngAfterViewInit():  void {
+    this.getPlaceAutocomplete();
+  }
+  getPlaceAutocomplete() {
+    const autocomplete  =  new  google.maps.places.Autocomplete(this.#addresstext.nativeElement,
+    {
+      componentRestrictions: { country:  'US' },
+      types: ['establishment', 'geocode'] 
+  
+    });
+    google.maps.event.addListener(autocomplete, 'place_changed', () => {
+      const place  =  autocomplete.getPlace();
+      console.log(place);
+    });
   }
   getWeather() {
     this.weatherClient.getData(this.city).subscribe(data => {
