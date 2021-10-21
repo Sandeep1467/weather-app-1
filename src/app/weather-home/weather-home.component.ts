@@ -1,5 +1,5 @@
  /// <reference  types="@types/googlemaps"  />
-import { Component, EventEmitter, OnInit, Output, ViewChild,ElementRef, AfterViewInit, NgZone} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild,ElementRef, AfterViewInit, NgZone, Input} from '@angular/core';
 import { Subscriber } from 'rxjs';
 import { WeatherClientService } from '../weather-client.service';
 
@@ -14,8 +14,8 @@ export class WeatherHomeComponent implements OnInit {
   newCoordinates(value: any) {
     this.newCoord.emit(value);
   }
- 
-  public city: string = "";
+
+  @Input() city: string = "";
   weather: any
 
 
@@ -29,7 +29,7 @@ export class WeatherHomeComponent implements OnInit {
   }
   private googlePlaceAutoCompleteAttach():void {
     let autocomplete =
-    new google.maps.places.Autocomplete(this.addresstext.nativeElement, { types: ["address"] });
+    new google.maps.places.Autocomplete(this.addresstext.nativeElement, { types: ["(cities)"] });
     autocomplete.addListener("place_changed",
     () => {
       this.ngZone.run(() => {

@@ -1,0 +1,29 @@
+.input-box{
+    width:30%;
+    background-color: rgba(255,255,255,0.6);
+    border:none;
+    outline:none;
+    color:#582233;
+    font-size:1.2rem;
+    border-radius: 5.5px;
+    padding:0 10px;
+    text-align: center;
+    margin: 4px 10px;
+ }
+ .btn{
+    margin: 4px 10px;
+    width:12%;
+    background-color: rgba(41, 39, 46, 0.6);
+    border:none;
+    outline:none;
+    color:#fafbfc;
+    border-radius: 5.5px;
+    margin-bottom:10px;
+ }
+ .input-box:focus{
+    background-color: rgba(255,255,255);
+ }
+ .btn:hover{
+     background-color: rgb(18, 235, 11);
+     color: rgb(19, 16, 16);
+ }
