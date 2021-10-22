@@ -1,9 +1,11 @@
 <!---->
-<div class=row style="background-color:rgb(203, 234, 250);">
+<div class="row"style="background-color:rgb(203, 234, 250);">
   <h1 class=" title "> <i class="bi bi-cloud-lightning-rain"></i> Weather-App</h1>
  <!-- <app-input-home (textPrint)="parentFun($event)"></app-input-home>-->
  <!--<div id="result">{{result}}</div>-->
- <app-direction-home></app-direction-home>
+ <div class= "row">
+ <app-direction-home (originMarker)="showOrigin($event)" (destinationMarker)="showDestination($event)" class="col-10"></app-direction-home>
+  <button type="button" id="button" class="col-2" (click)="calculateAndDisplayDistanceAndDuration()">Show Direction</button></div>
   <app-weather-home [city]="textualAddress" (newCoord)="setMapCoordinates($event)" class="col-4"> </app-weather-home>
   <div #mapContainer id="map" class="container" class="col-8">  
   </div>

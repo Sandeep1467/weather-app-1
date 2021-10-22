@@ -1,4 +1,5 @@
-import { Component, OnInit,ViewChild,AfterViewInit, ElementRef,NgZone} from '@angular/core';
+import { Component, OnInit,ViewChild,AfterViewInit, ElementRef,NgZone, Output,EventEmitter} from '@angular/core';
+
 
 @Component({
   selector: 'app-direction-home',
@@ -8,8 +9,11 @@ import { Component, OnInit,ViewChild,AfterViewInit, ElementRef,NgZone} from '@an
 export class DirectionHomeComponent implements OnInit {
   @ViewChild('origin', {static: false}) location!:  ElementRef;
   @ViewChild('destination',{static:false}) destination!:ElementRef;
-  ngZone: any;
-  constructor() { }
+ 
+  @Output()  originMarker=new EventEmitter<any>();
+  @Output()  destinationMarker=new EventEmitter<any>();
+   
+  constructor(private ngZone: NgZone) { }
 
   ngOnInit(): void {
   }
@@ -29,9 +33,10 @@ export class DirectionHomeComponent implements OnInit {
               return;
             } else {
               console.log(place);
+              this.originMarker.emit({lat:place.geometry.location.lat(),lng:place.geometry.location.lng()})
               // this.address = place.formatted_address;
-              // this.lat = place.geometry.location.lat();
-              // this.lng = place.geometry.location.lng();
+             // this.lat = place.geometry.location.lat();
+              // this.lng = ;place.geometry.location.lng()
               // this.marker.setPosition(new google.maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng()));
               // this.map.setCenter(new google.maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng()));
             }
@@ -50,6 +55,7 @@ export class DirectionHomeComponent implements OnInit {
             } else {
               console.log(place);
               // this.address = place.formatted_address;
+              this.destinationMarker.emit({lat:place.geometry.location.lat(),lng:place.geometry.location.lng()})
               // this.lat = place.geometry.location.lat();
               // this.lng = place.geometry.location.lng();
               // this.marker.setPosition(new google.maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng()));

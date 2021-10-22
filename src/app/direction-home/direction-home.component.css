@@ -1,5 +1,5 @@
 .input-box{
-    width:30%;
+    width:48%;
     background-color: rgba(255,255,255,0.6);
     border:none;
     outline:none;
@@ -22,8 +22,4 @@
  }
  .input-box:focus{
     background-color: rgba(255,255,255);
- }
- .btn:hover{
-     background-color: rgb(18, 235, 11);
-     color: rgb(19, 16, 16);
  }

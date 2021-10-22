@@ -9,3 +9,18 @@
     background-color: rgb(248, 215, 240);
     text-align: center;
 }
+#button{
+    margin: 4px 10px;
+    width:200px;
+    background-color: rgba(41, 39, 46, 0.6);
+    border:none;
+    outline:none;
+    color:#fafbfc;
+    border-radius: 5.5px;
+    margin-bottom:10px;
+    padding: 2px;
+ }
+ #button:hover{
+    background-color: rgb(18, 235, 11);
+    color: rgb(19, 16, 16);
+}
